@@ -16,4 +16,4 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("drdozer", "maven")
 )
 
-libraryDependencies += "org.stanch" %% "reftree" % "0.5.0"
+libraryDependencies += "org.stanch" %% "reftree" % "0.6.0"
