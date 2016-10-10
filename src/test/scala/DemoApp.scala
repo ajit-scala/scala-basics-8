@@ -11,15 +11,9 @@ object DemoApp extends App {
   )
 
   val list1 = List(1, 2, 3, 4)
-  val list2 = 500 :: list1.tail.tail
 
-  diagram.render("lists")(list1, list2)
+  val list2 = 100 :: list1.tail
+  val list3 = 10 :: list1.tail.tail
 
-  val top1 = B("asdasd", A(100))
-
-  diagram.render("case class")(top1)
-
+  diagram.render("lists")(list1, list2, list3)
 }
-
-case class A(a: Int)
-case class B(b: String, x: A)
