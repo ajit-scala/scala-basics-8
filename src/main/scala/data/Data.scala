@@ -1,6 +1,7 @@
 package data
 
 import play.api.libs.json.{JsString, JsValue, Json, Writes}
+import sorting.Ord
 
 
 case class Address(street: String, pin: Int)
@@ -23,7 +24,9 @@ case class Book(
   )
 
 object Book {
-
+  implicit val ordBook: Ord[Book] = new Ord[Book] {
+    override def lt(x: Book, y: Book): Boolean = x.basePrice < y.basePrice
+  }
 }
 
 object Data {
