@@ -1,4 +1,11 @@
 
+object Colon {
+  def unapply(email: String) = email.split(":") match {
+    case Array(user, domain) => Some((user, domain))
+    case _                   => None
+  }
+}
+
 object Email {
   def unapply(email: String) = email.split("@") match {
     case Array(user, domain) => Some((user, domain))
