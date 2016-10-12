@@ -1,7 +1,8 @@
 //import data.JsonDemo
 import play.api.libs.json._
+import solutions.JsDemo
 
-val json: JsObject = Json.obj(
+val json: JsValue = Json.obj(
   "a" -> 10,
   "b" -> true,
   "d" -> "urn:world",
@@ -21,6 +22,6 @@ val json: JsObject = Json.obj(
   "n" -> "urn:ignore"
 )
 
-//val result = JsonDemo.transform(json)
-//Json.prettyPrint(result)
+val result = JsDemo.transform(json)
+Json.prettyPrint(result)
 
