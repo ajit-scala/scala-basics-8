@@ -13,16 +13,11 @@ object Ord {
     override def lt(x: String, y: String): Boolean = x < y
   }
 
-  val optOrdInt: Ord[Option[Int]] = new Ord[Option[Int]] {
-    override def lt(x: Option[Int], y: Option[Int]): Boolean = (x, y) match {
+  def optOrd[T](ord: Ord[T]): Ord[Option[T]] = new Ord[Option[T]] {
+    override def lt(x: Option[T], y: Option[T]): Boolean = (x, y) match {
       case (None, _)          => true
       case (_, None)          => false
-      case (Some(a), Some(b)) => a < b
+      case (Some(a), Some(b)) => ord.lt(a, b)
     }
   }
-
-  val optOrdString: Ord[Option[String]] = new Ord[Option[String]] {
-    override def lt(x: Option[String], y: Option[String]): Boolean = ???
-  }
-
 }
