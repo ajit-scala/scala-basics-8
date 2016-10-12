@@ -27,6 +27,7 @@ object Book {
   implicit val ordBook: Ord[Book] = new Ord[Book] {
     override def lt(x: Book, y: Book): Boolean = x.basePrice < y.basePrice
   }
+  implicit val format = Json.format[Book]
 }
 
 object Data {
